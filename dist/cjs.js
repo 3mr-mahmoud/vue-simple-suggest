@@ -53,7 +53,8 @@ function _await(value, then, direct) {
   }if (!value || !value.then) {
     value = Promise.resolve(value);
   }return then ? value.then(then) : value;
-}function _empty() {}function _awaitIgnored(value, direct) {
+}function _empty() {}
+function _awaitIgnored(value, direct) {
   if (!direct) {
     return value && value.then ? value.then(_empty) : Promise.resolve();
   }
@@ -65,8 +66,7 @@ function _await(value, then, direct) {
   var result = body();if (result && result.then) {
     return result.then(_empty);
   }
-}
-function _catch(body, recover) {
+}function _catch(body, recover) {
   try {
     var result = body();
   } catch (e) {
@@ -538,8 +538,6 @@ function _catch(body, recover) {
 
       if (this.isClicking) {
         setTimeout(function () {
-          _this8.inputElement.focus();
-
           /// Ensure, that all needed flags are off before finishing the click.
           _this8.isClicking = false;
         }, 0);
@@ -593,8 +591,7 @@ function _catch(body, recover) {
         return;
       }
 
-      this.text = value;
-      if (this.hovered) this.hover(null);
+      this.text = value;if (this.hovered) this.hover(null);
 
       if (this.text.length < this.minLength) {
         this.hideList();

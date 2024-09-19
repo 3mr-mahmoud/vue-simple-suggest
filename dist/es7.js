@@ -447,8 +447,6 @@ var VueSimpleSuggest = {
 
       if (this.isClicking) {
         setTimeout(() => {
-          this.inputElement.focus();
-
           /// Ensure, that all needed flags are off before finishing the click.
           this.isClicking = false;
         }, 0);
