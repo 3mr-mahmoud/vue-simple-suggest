@@ -47,8 +47,7 @@ function _await(value, then, direct) {
       return Promise.reject(e);
     }
   };
-}function _empty() {}
-function _awaitIgnored(value, direct) {
+}function _empty() {}function _awaitIgnored(value, direct) {
   if (!direct) {
     return value && value.then ? value.then(_empty) : Promise.resolve();
   }
@@ -470,6 +469,8 @@ function _awaitIgnored(value, direct) {
         this.select(this.hovered);
       }
 
+      console.log('onKeyDown');
+
       this.onShowList(e);
       this.moveSelection(e);
       this.onAutocomplete(e);
@@ -498,7 +499,12 @@ function _awaitIgnored(value, direct) {
       this.$emit('suggestion-click', suggestion, e);
       this.select(suggestion);
 
-      if (!this.preventHide) this.hideList();
+      if (!this.preventHide) {
+        this.hideList();
+        console.log('hideList1');
+      }
+
+      console.log('hideList2');
 
       if (this.isClicking) {
         setTimeout(() => {
@@ -560,7 +566,8 @@ function _awaitIgnored(value, direct) {
         return;
       }
 
-      this.text = value;if (this.hovered) this.hover(null);
+      this.text = value;
+      if (this.hovered) this.hover(null);
 
       if (this.text.length < this.minLength) {
         this.hideList();

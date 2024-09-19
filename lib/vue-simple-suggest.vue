@@ -435,6 +435,8 @@ export default {
         this.select(this.hovered)
       }
 
+      console.log('onKeyDown');
+
       this.onShowList(e)
       this.moveSelection(e);
       this.onAutocomplete(e);
@@ -467,7 +469,12 @@ export default {
       this.$emit('suggestion-click', suggestion, e)
       this.select(suggestion)
 
-      if (!this.preventHide) this.hideList()
+      if (!this.preventHide) {
+        this.hideList()
+        console.log('hideList1');
+      }
+
+      console.log('hideList2');
 
       if (this.isClicking) {
           setTimeout(() => {
